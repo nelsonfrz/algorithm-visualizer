@@ -46,7 +46,7 @@ function AlgorithmVisualizer() {
 
     <p style={{display: 'inline', margin: '10px'}}>{count}</p>
     
-    <input style={{display: 'inline', margin: '10px'}} value={count} min='2' max='500' type='range' onChange={e => {
+    <input style={{display: 'inline', margin: '10px', width: '50%'}} value={count} min='2' max='500' type='range' onChange={e => {
       let value = e.target.valueAsNumber;
 
       setCount(value);
