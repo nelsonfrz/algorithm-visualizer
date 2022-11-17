@@ -36,6 +36,24 @@ function AlgorithmVisualizer() {
     <h1>Algorithm Visualizer (BETA)</h1>
     <p>Made by Nelson</p>
 
+    <button onClick={sort} style={{
+      padding: '10px'
+    }}>Sort</button>
+
+    <button onClick={() => setValues(generateRandomList(count, 0, 500))} style={{
+      padding: '10px'
+    }}>Generate</button>
+
+    <p style={{display: 'inline', margin: '10px'}}>{count}</p>
+    
+    <input style={{display: 'inline', margin: '10px'}} value={count} min='2' max='500' type='range' onChange={e => {
+      let value = e.target.valueAsNumber;
+
+      setCount(value);
+      setValues(generateRandomList(value, 0, 500))
+      setWidth(window.innerWidth/value); 
+    }}/>
+
     <div style={{
       height: '500px',
       border: '1px solid black',
@@ -45,23 +63,6 @@ function AlgorithmVisualizer() {
       {values.map(value => <Bar width={`${width}px`} height={`${value}px`} />)}
     </div>
 
-    <button onClick={sort} style={{
-      padding: '10px'
-    }}>Sort</button>
-
-    <button onClick={() => setValues(generateRandomList(count, 0, 500))} style={{
-      padding: '10px'
-    }}>Generate</button>
-
-    <p>{count}</p>
-    
-    <input value={count} min='2' max='500' type='range' onChange={e => {
-      let value = e.target.valueAsNumber;
-
-      setCount(value);
-      setValues(generateRandomList(value, 0, 500))
-      setWidth(window.innerWidth/value); 
-    }}/>
   </>);
 }
 
