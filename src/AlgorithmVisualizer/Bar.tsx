@@ -13,7 +13,7 @@ function Bar(props: any) {
       height: props.height,
       width: props.width,
       border: '1px solid gray',
-      transition: '.5s all',
+      transition: '.4s all',
       borderRadius: '2px 2px 0 0',
     }} />);
 }
