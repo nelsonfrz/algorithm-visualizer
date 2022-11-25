@@ -32,7 +32,7 @@ function AlgorithmVisualizer() {
         else greater.push(element);
       }
       
-      smaller.remove(smaller.indexOf(list[0], 1));
+      smaller.splice(smaller.indexOf(list[0], 1));
       
       setValues([...smaller.concat(list[0], greater)]);
       await timer(0);
