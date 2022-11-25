@@ -21,11 +21,11 @@ function AlgorithmVisualizer() {
   const sort = async () => {
     let _values = [...values];
     
-    const quicksort = async (list) => {
+    const quicksort = async (list: number[]): number[] => {
       if (list.length <= 1) return list;
       
-      let smaller = [];
-      let greater = [];
+      let smaller: number[] = [];
+      let greater: number[] = [];
       
       for (let element of list) {
         if (element <= list[0]) smaller.push(element);
