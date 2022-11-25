@@ -21,7 +21,7 @@ function AlgorithmVisualizer() {
   const sort = async () => {
     let _values = [...values];
     
-    const quicksort = list => {
+    const quicksort = async (list) => {
       if (list.length <= 1) return list;
       
       let smaller = [];
