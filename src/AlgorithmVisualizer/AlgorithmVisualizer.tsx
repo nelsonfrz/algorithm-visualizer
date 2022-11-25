@@ -37,10 +37,10 @@ function AlgorithmVisualizer() {
       setValues([...smaller.concat(list[0], greater)]);
       await timer(0);
       
-      return quicksort(smaller)
+      return quicksort(smaller).then(smaller => smaller)
         .concat(
           list[0], 
-          quicksort(greater));
+          quicksort(greater).then(greater => greater));
     };
     
     setValues([...quicksort(_values).then(list => list)]);
