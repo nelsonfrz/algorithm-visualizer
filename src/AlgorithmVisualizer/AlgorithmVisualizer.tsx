@@ -43,7 +43,7 @@ function AlgorithmVisualizer() {
           quicksort(greater));
     };
     
-    setValues([...quicksort(_values)]);
+    setValues([...quicksort(_values).then(list => list)]);
     
     /* Bubble Sort
     for (let i = 0; i < _values.length; i++) {
