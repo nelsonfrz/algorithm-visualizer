@@ -20,7 +20,32 @@ function AlgorithmVisualizer() {
 
   const sort = async () => {
     let _values = [...values];
-
+    
+    const quicksort = list => {
+      if (list.length <= 1) return list;
+      
+      let smaller = [];
+      let greater = [];
+      
+      for (let element of list) {
+        if (element <= list[0]) smaller.push(element);
+        else greater.push(element);
+      }
+      
+      smaller.remove(smaller.indexOf(list[0], 1));
+      
+      setValues([...smaller.concat(list[0], greater)]);
+      await timer(0);
+      
+      return quicksort(smaller)
+        .concat(
+          list[0], 
+          quicksort(greater));
+    };
+    
+    setValues([...quicksort(_values)]);
+    
+    /* Bubble Sort
     for (let i = 0; i < _values.length; i++) {
       for (let j = 0; j < _values.length - i - 1; j++) {
         if (_values[j] > _values[j+1]) {
@@ -30,6 +55,7 @@ function AlgorithmVisualizer() {
         await timer(0);
       }
     }
+    */
   };
 
   return (<>
