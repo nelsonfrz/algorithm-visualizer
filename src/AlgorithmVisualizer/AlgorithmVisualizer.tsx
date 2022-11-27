@@ -21,7 +21,7 @@ function AlgorithmVisualizer() {
   const sort = async () => {
     let _values = [...values];
     
-    const quicksort = async (list: number[]): Promise<any> => {
+    const quicksort = async (list: number[]): Promise<number[]> => {
       if (list.length <= 1) return list;
       
       let smaller: number[] = [];
@@ -37,13 +37,14 @@ function AlgorithmVisualizer() {
       setValues([...smaller.concat(list[0], greater)]);
       await timer(0);
       
-      return quicksort(smaller).then(smaller => smaller)
+      return await quicksort(smaller)
         .concat(
           list[0], 
-          quicksort(greater).then(greater => greater));
+          await quicksort(greater)
+        );
     };
     
-    setValues([...quicksort(_values).then(list => list)]);
+    setValues([...await quicksort(_values)]);
     
     /* Bubble Sort
     for (let i = 0; i < _values.length; i++) {
